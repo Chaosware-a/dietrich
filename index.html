@@ -2,45 +2,93 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Discord Card</title>
+<title>Discord Card Horizontal</title>
 <style>
   body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('seu_fundo.jpg') no-repeat center/cover;
-    font-family: Arial, sans-serif;
+    margin: 0;
+    background: url('https://i.imgur.com/7b7Q1tI.jpg') no-repeat center/cover; /* Fundo de exemplo */
+    font-family: 'Arial', sans-serif;
   }
+
   .discord-card {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    background: rgba(54, 57, 63, 0.95); /* Fundo estilo Discord */
     border-radius: 15px;
-    width: 250px;
-    text-align: center;
-    color: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    padding: 15px 20px;
+    width: 450px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #fff;
+    cursor: pointer;
   }
+
+  .discord-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+  }
+
   .discord-card img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    border: 3px solid #7289da; /* borda azul estilo Discord */
+    margin-right: 20px;
+    transition: border-color 0.3s;
+  }
+
+  .discord-card:hover img {
+    border-color: #1abc9c; /* muda a borda ao passar o mouse */
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .username {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .discriminator {
+    font-size: 16px;
+    color: #b9bbbe;
     margin-bottom: 10px;
   }
-  .username {
-    font-size: 18px;
-    font-weight: bold;
-  }
+
   .status {
     font-size: 14px;
-    margin-top: 5px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px;
+    background-color: #747f8d; /* padrão offline */
+    font-weight: bold;
+    color: #fff;
   }
+
+  .status.online { background-color: #43b581; }
+  .status.idle { background-color: #faa61a; }
+  .status.dnd { background-color: #f04747; }
 </style>
 </head>
 <body>
+
 <div class="discord-card">
   <img src="https://cdn.discordapp.com/avatars/1406075994045157438/2b45b7f3513fa5139324273a36ae6307.png?size=2048" alt="Avatar">
-  <div class="username">Dietrich</div>
-  <div class="status">Offline</div>
+  <div class="info">
+    <div class="username">Dietrich</div>
+    <div class="discriminator">#1234</div>
+    <div class="status offline">Offline</div>
+  </div>
 </div>
+
 </body>
 </html>
+
